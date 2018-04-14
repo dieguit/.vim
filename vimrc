@@ -1,7 +1,6 @@
 " basic setup
 let mapleader=" "
-set tags=./.git/tags;$HOME
-
+set clipboard=unnamedplus
 colorscheme nova
 syntax enable
 
@@ -47,6 +46,8 @@ set lazyredraw
 set showmatch
 set incsearch
 set hlsearch
+set ignorecase
+set smartcase
 nnoremap <leader><space> :nohlsearch<CR>
 set path+=**
 
