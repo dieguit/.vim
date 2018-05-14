@@ -34,3 +34,6 @@
 [submodule "pack/dieguit/opt/vim-javascript"]
 	path = pack/dieguit/start/vim-javascript
 	url = git@github.com:pangloss/vim-javascript.git
+[submodule "pack/dieguit/start/ctrlp.vim"]
+	path = pack/dieguit/start/ctrlp.vim
+	url = git@github.com:ctrlpvim/ctrlp.vim.git

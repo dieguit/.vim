@@ -42,6 +42,7 @@ set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·,space:·
 set cursorline
 
 set wildmenu
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/min/*,*/vendor/*,*/node_modules/*,*/bower_components/*
 set lazyredraw
 set showmatch
 set incsearch
