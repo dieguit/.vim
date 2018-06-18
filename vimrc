@@ -1,3 +1,5 @@
+" plugins
+source ~/.vim/plugins.vim
 " basic setup
 let mapleader=" "
 set clipboard=unnamedplus
