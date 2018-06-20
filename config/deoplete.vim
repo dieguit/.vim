@@ -61,15 +61,15 @@ let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
 
 let g:deoplete#omni#functions = get(g:, 'deoplete#omni#functions', {})
 let g:deoplete#omni#functions.css = 'csscomplete#CompleteCSS'
-let g:deoplete#omni#functions.html = 'htmlcomplete#CompleteTags'
+let g:deoplete#omni#functions.html = ['htmlcomplete#CompleteTags', 'emmet#completeTag']
 let g:deoplete#omni#functions.markdown = 'htmlcomplete#CompleteTags'
-" let g:deoplete#omni#functions.javascript =
-"	\ [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS' ]
+ let g:deoplete#omni#functions.javascript =
+	\ [ 'tern#Complete', 'jspc#omni', 'javascriptcomplete#CompleteJS', 'emmet#completeTag' ]
 
 let g:deoplete#omni_patterns = get(g:, 'deoplete#omni_patterns', {})
 let g:deoplete#omni_patterns.html = '<[^>]*'
-" let g:deoplete#omni_patterns.javascript = '[^. *\t]\.\w*'
-" let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%\(\h\w*\)\?'
+ let g:deoplete#omni_patterns.javascript = '[^. *\t]\.\w*'
+ let g:deoplete#omni_patterns.javascript = '[^. \t]\.\%\(\h\w*\)\?'
 let g:deoplete#omni_patterns.php =
 	\ '\h\w*\|[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
 
@@ -100,23 +100,23 @@ call deoplete#custom#source('tmux-complete', 'mark', '⊶')
 call deoplete#custom#source('syntax',        'mark', '♯')
 call deoplete#custom#source('member',        'mark', '.')
 
-call deoplete#custom#source('ultisnips',     'rank', 670)
-call deoplete#custom#source('padawan',       'rank', 660)
-call deoplete#custom#source('go',            'rank', 650)
-call deoplete#custom#source('vim',           'rank', 640)
-call deoplete#custom#source('flow',          'rank', 630)
-call deoplete#custom#source('TernJS',        'rank', 620)
-call deoplete#custom#source('jedi',          'rank', 610)
-call deoplete#custom#source('omni',          'rank', 600)
-call deoplete#custom#source('member',        'rank', 500)
-call deoplete#custom#source('file_include',  'rank', 420)
-call deoplete#custom#source('file',          'rank', 410)
-call deoplete#custom#source('tag',           'rank', 400)
-call deoplete#custom#source('around',        'rank', 330)
-call deoplete#custom#source('buffer',        'rank', 320)
-call deoplete#custom#source('dictionary',    'rank', 310)
-call deoplete#custom#source('tmux-complete', 'rank', 300)
-call deoplete#custom#source('syntax',        'rank', 200)
+" call deoplete#custom#source('ultisnips',     'rank', 670)
+" call deoplete#custom#source('padawan',       'rank', 660)
+" call deoplete#custom#source('go',            'rank', 650)
+" call deoplete#custom#source('vim',           'rank', 640)
+" call deoplete#custom#source('flow',          'rank', 630)
+" call deoplete#custom#source('TernJS',        'rank', 620)
+" call deoplete#custom#source('jedi',          'rank', 610)
+" call deoplete#custom#source('omni',          'rank', 600)
+" call deoplete#custom#source('member',        'rank', 500)
+" call deoplete#custom#source('file_include',  'rank', 420)
+" call deoplete#custom#source('file',          'rank', 410)
+" call deoplete#custom#source('tag',           'rank', 400)
+" call deoplete#custom#source('around',        'rank', 330)
+" call deoplete#custom#source('buffer',        'rank', 320)
+" call deoplete#custom#source('dictionary',    'rank', 310)
+" call deoplete#custom#source('tmux-complete', 'rank', 300)
+" call deoplete#custom#source('syntax',        'rank', 200)
 
 " }}}
 " Matchers and Converters " {{{
@@ -137,11 +137,13 @@ call deoplete#custom#source('_', 'converters', [
 " Key-mappings and Events " {{{
 " ---
 
-
 " Movement within 'ins-completion-menu'
-imap <expr><C-j>   pumvisible() ? "\<Down>" : "\<C-j>"
-imap <expr><C-k>   pumvisible() ? "\<Up>" : "\<C-k>"
+imap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
+imap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-k>"
 let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-l>"
+let g:UltiSnipsJumpBackwardTrigger="<c-h>"
+autocmd FileType javascript let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 
 " Scroll pages in menu
 inoremap <expr><C-f> pumvisible() ? "\<PageDown>" : "\<Right>"
