@@ -1,0 +1,1 @@
+/home/dieguit/.vim/vimrc

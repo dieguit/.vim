@@ -1,5 +1,6 @@
-" plugins
+" Include configs
 source ~/.vim/plugins.vim
+source ~/.vim/config/deoplete.vim
 " basic setup
 let mapleader=" "
 set clipboard=unnamedplus
@@ -62,3 +63,4 @@ let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 
+"let g:indent_guides_enable_on_vim_startup=1
