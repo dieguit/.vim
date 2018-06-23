@@ -1,4 +1,4 @@
-
+imap jk <Esc>
 " Buffer nav maps
 map <C-J> <C-W>j<C-W>_
 map <C-K> <C-W>k<C-W>_

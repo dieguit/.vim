@@ -1,1 +1,1 @@
-/home/dieguit/.vim/vimrc
+/Users/dieguit/.vim/vimrc
